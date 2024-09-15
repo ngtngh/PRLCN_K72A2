@@ -26,9 +26,18 @@ function lookupStudent() {
     document.getElementById('studentDOB').innerText = student.dob;
     document.getElementById('studentPoints').innerText = student.points;
     document.getElementById('activities').innerText = student.hd;
-    if (document.getElementById('activities').innerText === '') {
+    
+    const diemInputs = document.querySelectorAll('.diem-input');
+    if (document.getElementById('studentName').innerText === '') {
         check_acts.textContent = '';
+        diemInputs.forEach(function(input) {
+            input.disabled = true;
+            input.value = '';
+        });
     } else {
         check_acts.textContent = 'Bạn vui lòng kiểm tra lại các hoạt động rèn luyện của mình trước khi lưu thông tin:';
+        diemInputs.forEach(function(input) {
+            input.disabled = false;
+        });
     }
 }
